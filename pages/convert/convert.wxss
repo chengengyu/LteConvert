@@ -1,1 +1,7 @@
 /* pages/convert/convert.wxss */
+.freqToEarfcn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+}

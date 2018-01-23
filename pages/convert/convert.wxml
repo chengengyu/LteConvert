@@ -1,17 +1,21 @@
 <!--pages/convert/convert.wxml-->
-<view> 计算绝对信道号需要输入频点及频段，反之只需输入绝对信道号。</view>
+<view class="freqToEarfcn">Freq->Earfcn</view>
+
 <form bindsubmit="convert">
   <input placeholder="频点or绝对信道号" type="number" focus="true" name="freqOrEarfcn"/>
-  <picker bindchange="bindTypePickerChange" value="{{typeIndex}}" range="{{type}}" name="type">
+  <picker bindchange="bindTypePickerChange" value="{{typeIndex}}"
+    range="{{type}}" name="type">
       转换方式:{{type[typeIndex]}}
   </picker>
-  <picker bindchange="bindLinkPickerChange" value="{{linkIndex}}" range="{{dlUlFlag}}" name="link">
+  <picker bindchange="bindLinkPickerChange" value="{{linkIndex}}"
+    range="{{dlUlFlag}}" name="link">
       方向:{{dlUlFlag[linkIndex]}}
   </picker>
-  <picker bindchange="bindBandPickerChange" value="{{bandIndex}}" range="{{eutraBand}}" name="band">
+  <picker bindchange="bindBandPickerChange" value="{{bandIndex}}" 
+    range="{{eutraBand}}" name="band">
       频段:{{eutraBand[bandIndex]}}
   </picker>
-  <button formType="submit"> 计算 </button>
+  <button formType="submit"> >> </button>
 </form>
 <view>{{text}}</view>
 

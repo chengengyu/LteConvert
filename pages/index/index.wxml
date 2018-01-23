@@ -8,7 +8,6 @@
     </block>
   </view>
   <view class="usermotto">
-    <text class="user-motto">{{motto}}\n</text>
-    <text bindtap="bindConvertViewTap">跳转到Convert</text>
+    <text bindtap="bindConvertViewTap">频点绝对信道号转换工具</text>
   </view>
 </view>
