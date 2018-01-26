@@ -435,7 +435,7 @@ function earfcnToFreq(dlUlFlag, earfcn)
       return [true, i, earfcn - earfcnLow + freqLow];
     }
   }
-  return [false, "输入绝对信道号有误"];
+  return [false, "Error"];
 }
 
 Page({
@@ -489,39 +489,41 @@ Page({
     bandIndex : 0
   },
 
-  convert: function (e) 
+  FreqToEarfcn: function (e) 
+  {
+    var earfcn;
+    var output;
+    console.log(e);
+
+    if (false == checkFreq(this.data.dlUlFlag[e.detail.value.link],
+              Number(e.detail.value.freq),
+              this.data.eutraBand[e.detail.value.band]))
+    {
+      this.setData({ freqResult: "Error"});
+      return;
+    }
+    earfcn = freqToEarfcn(this.data.dlUlFlag[e.detail.value.link],
+                Number(e.detail.value.freq),
+                this.data.eutraBand[e.detail.value.band]);
+    this.setData({freqResult: earfcn});
+    return;
+  },
+
+  EarfcnToFreq: function (e) 
   {
     var earfcn;
     var output;
     console.log(e);
     
-    if (this.data.type[e.detail.value.type] == "EarfcnToFreq")
+    output = earfcnToFreq(this.data.dlUlFlag[e.detail.value.link],
+              Number(e.detail.value.earfcn));
+    if (output[0] == true)
     {
-      output = earfcnToFreq(this.data.dlUlFlag[e.detail.value.link],
-               Number(e.detail.value.freqOrEarfcn));
-      if (output[0] == true)
-      {
-        this.setData({text: "频段：" + output[1] + "频点：" + output[2]});
-      }
-      else
-      {
-        this.setData({text: output[1]});
-      }
+      this.setData({earfcnResult: "" + output[1] + ", " + output[2]});
     }
     else
     {
-      if (false == checkFreq(this.data.dlUlFlag[e.detail.value.link],
-                Number(e.detail.value.freqOrEarfcn),
-                this.data.eutraBand[e.detail.value.band]))
-      {
-        this.setData({text: "输入频点有误"});
-        return;
-      }
-      earfcn = freqToEarfcn(this.data.dlUlFlag[e.detail.value.link],
-                  Number(e.detail.value.freqOrEarfcn),
-                  this.data.eutraBand[e.detail.value.band]);
-      this.setData({text: earfcn});
-      return;
+      this.setData({earfcnResult: output[1]});
     }
   },
 

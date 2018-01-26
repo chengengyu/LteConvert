@@ -1,22 +1,45 @@
 <!--pages/convert/convert.wxml-->
-<view class="freqToEarfcn">Freq->Earfcn</view>
+<view class="freqToEarfcn">-------Freq->Earfcn-------</view>
 
-<form bindsubmit="convert">
-  <input placeholder="频点or绝对信道号" type="number" focus="true" name="freqOrEarfcn"/>
-  <picker bindchange="bindTypePickerChange" value="{{typeIndex}}"
-    range="{{type}}" name="type">
-      转换方式:{{type[typeIndex]}}
-  </picker>
+
+  <form bindsubmit="FreqToEarfcn">
+    <view class="formElement">
+      <view class="input">
+        <input placeholder="输入:freq(100KHz)" type="number" name="freq" maxlength="5"                    focus="true"/>
+      </view>
+      <view class="dlulPicker">
+        <picker bindchange="bindBandPickerChange" value="{{bandIndex}}" 
+          range="{{eutraBand}}" name="band">
+            {{eutraBand[bandIndex]}}
+        </picker>
+      </view>    
+      <view class="dlulPicker">
+        <picker bindchange="bindLinkPickerChange" value="{{linkIndex}}"
+          range="{{dlUlFlag}}" name="link">
+            {{dlUlFlag[linkIndex]}}
+        </picker>
+      </view>
+
+    </view>
+    <view class="button">
+      <button size="mini" formType="submit">>></button>
+    </view>
+    <view class="freqResult">
+    Earfcn:{{freqResult}}
+    </view>
+  </form>
+
+
+
+<view class="earfcnToFreq">-------Earfcn->Freq-------
+<form bindsubmit="EarfcnToFreq">
+  <input placeholder="输入:EARFCN" type="number" name="earfcn" maxlength="5"/>
   <picker bindchange="bindLinkPickerChange" value="{{linkIndex}}"
     range="{{dlUlFlag}}" name="link">
       方向:{{dlUlFlag[linkIndex]}}
   </picker>
-  <picker bindchange="bindBandPickerChange" value="{{bandIndex}}" 
-    range="{{eutraBand}}" name="band">
-      频段:{{eutraBand[bandIndex]}}
-  </picker>
-  <button formType="submit"> >> </button>
+  <button size="mini" formType="submit">>></button>
 </form>
-<view>{{text}}</view>
-
+<view>{{earfcnResult}}</view>
+</view>
 

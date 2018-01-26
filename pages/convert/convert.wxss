@@ -3,5 +3,45 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #aaa;
+  margin:10px 5px 15px 20px;
+  
+}
+
+.input {
+  display: table;
+  margin:10px 5px 10px 5px;
+  font-size:smaller;
+}
+
+.formElement {
+  display: inline-block;
+  width: 400rpx;
+}
+
+.dlulPicker{
+  display: table;
+  margin:10px 5px 10px 5px;
+}
+
+.button{
+  display: inline-block;
+  position: relative;
+  right: 100rpx;
+  bottom: 18rpx;
+  width: 80rpx;
+}
+
+.freqResult{
+  display: inline-block;
+  position: relative;
+  bottom: 95rpx;
+  right: 60rpx;
+}
+
+.earfcnToFreq {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin:10px 5px 15px 20px;
+  /*color: #aaa;*/
 }
