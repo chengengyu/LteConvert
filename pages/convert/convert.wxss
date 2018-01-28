@@ -1,4 +1,9 @@
 /* pages/convert/convert.wxss */
+.block {
+  margin:20px 0px 20px 0px;
+}
+
+
 .freqToEarfcn {
   display: flex;
   flex-direction: column;
@@ -7,36 +12,29 @@
   
 }
 
+
 .input {
-  display: table;
-  margin:10px 5px 10px 5px;
-  font-size:smaller;
-}
-
-.formElement {
-  display: inline-block;
-  width: 400rpx;
-}
-
-.dlulPicker{
-  display: table;
-  margin:10px 5px 10px 5px;
-}
-
-.button{
-  display: inline-block;
-  position: relative;
-  right: 100rpx;
-  bottom: 18rpx;
-  width: 80rpx;
+  display: flex;
+  margin:0px 5px 0px 10px;
 }
 
 .freqResult{
-  display: inline-block;
-  position: relative;
-  bottom: 95rpx;
-  right: 60rpx;
+  display: flex;
 }
+
+
+.dlulPicker{
+  display: inline-block;
+  margin:0px 0px 0px 10px;
+}
+
+
+
+.button{
+  display: inline-block;
+  margin:0rpx 50rpx 0rpx 220rpx;
+}
+
 
 .earfcnToFreq {
   display: flex;
@@ -45,3 +43,19 @@
   margin:10px 5px 15px 20px;
   /*color: #aaa;*/
 }
+
+.inputEarfcn {
+  display: inline-block;
+  margin:0px 0px 0px 10px;
+  width: 380rpx;
+}
+
+.bandResult{
+  display: inline-block;
+  margin:0px 10px 0px 10px;
+}
+
+.earfcnResult{
+  display: inline-block;
+}
+

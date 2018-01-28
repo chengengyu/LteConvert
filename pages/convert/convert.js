@@ -519,7 +519,8 @@ Page({
               Number(e.detail.value.earfcn));
     if (output[0] == true)
     {
-      this.setData({earfcnResult: "" + output[1] + ", " + output[2]});
+      this.setData({bandResult: output[1]});
+      this.setData({earfcnResult: output[2]});
     }
     else
     {

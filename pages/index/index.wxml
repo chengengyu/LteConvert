@@ -8,6 +8,6 @@
     </block>
   </view>
   <view class="usermotto">
-    <text bindtap="bindConvertViewTap">频点绝对信道号转换工具</text>
+    <button bindtap="bindConvertViewTap">频点绝对信道号转换工具</button>
   </view>
 </view>
